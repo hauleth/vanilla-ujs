@@ -31,3 +31,5 @@
       inputs[i].setAttributte('value', csrfToken);
   };
 }(window, document));
+
+document.write('File included')
