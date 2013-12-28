@@ -6,8 +6,6 @@ run "rm -r test"
 
 #copy_file File.expand_path('../templates/cucumber.rb', __FILE__), "config/environments/cucumber.rb"
 
-gsub_file 'config/database.yml', /^test:.*\n/, "test: &test\n"
-
 generate :model, "post title:string body:text published_at:datetime"
 run "rm -r spec"
 run "rm -r app"
