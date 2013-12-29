@@ -1,0 +1,19 @@
+%h2 Posts index
+
+%ul
+  %li
+    = link_to "confirm?", 'http://google.com', data: {confirm: 'go to google?'}
+  %li
+    = link_to "disable with", '#', data: {disable_with: 'disabled & clicked'}
+    = submit_tag "disable with", data: {disable_with: 'disabled & clicked'}
+    = button_tag "disable with", data: {disable_with: 'disabled & clicked'}
+    = text_area_tag '', "disable with", data: {disable_with: 'disabled & clicked'}
+  %li
+    = raw %{<a href="/" data-remote id="data-remote1">data-remote</a>}
+    = link_to "data-remote2", '/', data: {remote: true}, id: 'data-remote2'
+  %li
+    = link_to "data-method POST", '/data-method', data: {method: 'post'}
+    = link_to "data-method GET", '/data-method', data: {method: 'get'}
+    = link_to "data-method PUT", '/data-method', data: {method: 'put'}
+    = link_to "data-method PATCH", '/data-method', data: {method: 'patch'}
+    = link_to "data-method DELETE", '/data-method', data: {method: 'delete'}

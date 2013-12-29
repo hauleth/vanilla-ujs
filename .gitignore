@@ -1,0 +1,43 @@
+## MAC OS
+.DS_Store
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## EMACS
+*~
+\#*
+.\#*
+
+## VIM
+*.swp
+# IDEA / RUBYMINE
+.idea
+
+## RVM
+.rvmrc
+.ruby-version
+.ruby-gemset
+
+## PROJECT::GENERAL
+tags
+coverage
+rdoc
+doc
+.yardoc
+pkg
+
+## PROJECT::SPECIFIC
+.bundle
+spec/rails
+*.sqlite3-journal
+Gemfile.lock
+Gemfile-*.lock
+capybara*
+viewcumber
+test-rails*
+public
+.rspec
+.rails-version
+.rbenv-version
