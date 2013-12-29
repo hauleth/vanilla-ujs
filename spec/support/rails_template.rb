@@ -12,6 +12,8 @@ run "rm -r app"
 run "ln -s #{File.dirname(File.expand_path(__FILE__))}/templates/app #{ENV['RAILS_ROOT']}"
 
 route "root 'posts#index'"
+route "resources :posts"
+route "match '/data-method' => 'posts#data_method', via: [:get, :post, :put, :patch, :delete]"
 
 inject_into_file "config/environment.rb", %{
   $LOAD_PATH.unshift('#{File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'lib'))}')
