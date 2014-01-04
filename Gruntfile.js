@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       options: {
         stripBanners: true,
         banner: "(function (window, document, undefined) {\n",
-        footer: '}).call(this, window, document);'
+        footer: '}).call(null, window, document);'
       },
       dist: {
         src: [

@@ -41,4 +41,4 @@ document.addEventListener('click', function(event) {
     return false;
   }
 }, false);
-}).call(this, window, document);
+}).call(null, window, document);
