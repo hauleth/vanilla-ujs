@@ -1,17 +1,24 @@
-describe('LinkMethods', function () {
-  var a, aWithMethod;
+describe('Link methods', function () {
+  var click = function (element) {
+    var evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true);
+
+    element.dispatchEvent(evt);
+  };
 
   before(function () {
-    expect(document).to.not.equal(null);
-    a = document.createElement('a');
-    aWithMethod = document.createElement('a');
-
-    aWithMethod.setAttribute('data-method', 'post');
-
-    $fix.appendChild(a);
-    $fix.appendChild(aWithMethod);
+    window.clickLink = sinon.spy();
   });
 
-  it('is true', function () {
+  describe('GET', function () {
+    it('is submited normally', function () {
+      var a = document.createElement('a');
+      a.setAttribute('href', 'javascript:clickLink()');
+      $fix.appendChild(a);
+
+      click(a);
+
+      expect(window.clickLink.called).to.be.true;
+    });
   });
 });

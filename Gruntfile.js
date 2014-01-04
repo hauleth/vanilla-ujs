@@ -32,7 +32,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('test', ['mocha:all']);
+  grunt.registerTask('test', ['concat', 'mocha:all']);
   grunt.registerTask('dist', ['concat', 'uglify:dist']);
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
