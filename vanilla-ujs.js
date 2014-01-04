@@ -7,17 +7,19 @@ var matches = (function(doc) {
     doc.msMatchesSelector;
 })(document.documentElement);
 
-document.addEventListener('click', function(e) {
-  if ( matches.call( e.target, 'ul a') ) {
-    var  form, input, method;
+document.addEventListener('click', function(event) {
+  var form, input, method, element;
 
-    if (matches(element, 'a[data-remote]')) {
-      return;
+  element = event.target;
+
+  if (matches.call(element, 'a[data-method]')) {
+    if (matches.call(element, 'a[data-remote]')) {
+      return true;
     }
 
     method = element.getAttribute('data-method').toLowerCase();
     if (method == 'get') {
-      return;
+      return true;
     }
 
     form = document.createElement('form');

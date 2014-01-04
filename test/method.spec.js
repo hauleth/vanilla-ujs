@@ -10,12 +10,33 @@ describe('Link methods', function () {
     window.clickLink = sinon.spy();
   });
 
-  describe('GET', function () {
-    it('is submited normally', function () {
-      var a = document.createElement('a');
+  describe('no [data-method]', function () {
+    var a;
+
+    beforeEach(function () {
+      a = document.createElement('a');
       a.setAttribute('href', 'javascript:clickLink()');
       $fix.appendChild(a);
+    });
 
+    it('is send normally', function () {
+      click(a);
+
+      expect(window.clickLink.called).to.be.true;
+    });
+  });
+
+  describe('[data-method=get]', function () {
+    var a;
+
+    beforeEach(function () {
+      a = document.createElement('a');
+      a.setAttribute('href', 'javascript:clickLink()');
+      a.setAttribute('data-method', 'get');
+      $fix.appendChild(a);
+    });
+
+    it('is send normally', function () {
       click(a);
 
       expect(window.clickLink.called).to.be.true;
