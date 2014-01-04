@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta charset="UTF-8">
+    <script src="config/mocha.js"></script>
+    <script src="config/chai.js"></script>
+    <script src="../vanilla-ujs.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <link rel="stylesheet" href="config/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <div id="fixtures"></div>
+    <script src="method.spec.js"></script>
+    <script src="config/globals.js"></script>
+    <script>
+      if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>
