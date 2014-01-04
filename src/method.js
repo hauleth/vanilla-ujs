@@ -7,7 +7,7 @@ var matches = (function(doc) {
 })(document.documentElement);
 
 document.addEventListener('click', function(e) {
-  if ( matches.call( e.target, 'ul a') ) {
+  if ( matches.call( e.target, 'a[data-method]') ) {
     var  form, input, method;
 
     if (matches(element, 'a[data-remote]')) {
