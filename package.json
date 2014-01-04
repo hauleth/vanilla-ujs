@@ -1,0 +1,31 @@
+{
+  "name": "vanilla-ujs",
+  "version": "0.1.0",
+  "description": "Rails UJS in VanillaJS",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-karma": "*",
+    "karma": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hauleth/vanilla-ujs.git"
+  },
+  "keywords": [
+    "ujs",
+    "rails",
+    "vanilla"
+  ],
+  "author": "Łukasz Niemier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hauleth/vanilla-ujs/issues"
+  },
+  "homepage": "https://github.com/hauleth/vanilla-ujs"
+}
