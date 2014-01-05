@@ -23,7 +23,7 @@ document.addEventListener('click', function(event) {
 
     form = document.createElement('form');
     form.method = 'POST';
-    form.action = element.attr('href');
+    form.action = element.getAttribute('href');
     form.style.display = 'none';
 
     if (method != 'post') {
@@ -37,6 +37,5 @@ document.addEventListener('click', function(event) {
     document.body.appendChild(form);
     form.submit();
     event.preventDefault();
-    return false;
   }
 }, false);

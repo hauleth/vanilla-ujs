@@ -2,7 +2,11 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     mocha: {
-      all: ['test/**/*.html'],
+      all: {
+        options: {
+          urls: ['http://localhost:8000/index.html']
+        }
+      },
       options: {
         run: true,
       }
@@ -29,14 +33,25 @@ module.exports = function (grunt) {
           'vanilla-ujs.min.js': 'vanilla-ujs.js'
         }
       }
+    },
+    express: {
+      test: {
+        options: {
+          port: 8000,
+          server: 'test/helpers/serv.js',
+          bases: ['src/', 'test/']
+        }
+      }
     }
   });
 
-  grunt.registerTask('test', ['concat', 'mocha:all']);
+  grunt.registerTask('test', ['express:test', 'mocha']);
+  grunt.registerTask('webtest', ['express:test', 'express-keepalive']);
   grunt.registerTask('dist', ['concat', 'uglify:dist']);
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-mocha');
 };

@@ -10,7 +10,9 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
-    "grunt-mocha": "*"
+    "grunt-mocha": "*",
+    "grunt-express": "*",
+    "express": "*"
   },
   "repository": {
     "type": "git",
