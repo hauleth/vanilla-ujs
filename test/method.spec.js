@@ -36,7 +36,7 @@ describe('Link methods', function () {
   describe('[data-method=post]', function () {
     beforeEach(function () {
       valid = false;
-      a.setAttribute('href', '/fixture');
+      a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'post');
     });
 
@@ -53,7 +53,7 @@ describe('Link methods', function () {
   describe('[data-method=delete]', function () {
     beforeEach(function () {
       valid = false;
-      a.setAttribute('href', '/fixture');
+      a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'delete');
     });
 
@@ -70,7 +70,7 @@ describe('Link methods', function () {
   describe('[data-method=put]', function () {
     beforeEach(function () {
       valid = false;
-      a.setAttribute('href', '/fixture');
+      a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'put');
     });
 

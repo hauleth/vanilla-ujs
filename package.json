@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Rails UJS in VanillaJS",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "webtest": "grunt webtest"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -12,7 +13,8 @@
     "grunt-contrib-concat": "*",
     "grunt-mocha": "*",
     "grunt-express": "*",
-    "express": "*"
+    "express": "*",
+    "glob": "*"
   },
   "repository": {
     "type": "git",
