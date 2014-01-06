@@ -12,8 +12,12 @@
     global.iframe.onload = function () {
       global.iframe.onload = function () {};
 
-      global.win = global.iframe.contentWindow;
-      global.doc = global.iframe.contentDocument;
+      global.__defineGetter__('win', function () {
+        return global.iframe.contentWindow;
+      });
+      global.__defineGetter__('doc', function () {
+        return global.iframe.contentDocument;
+      });
 
       done();
     };

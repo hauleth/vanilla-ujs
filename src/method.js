@@ -1,11 +1,3 @@
-var matches = (function(doc) {
-  return doc.matchesSelector ||
-    doc.webkitMatchesSelector ||
-    doc.mozMatchesSelector ||
-    doc.oMatchesSelector ||
-    doc.msMatchesSelector;
-})(document.documentElement);
-
 document.addEventListener('click', function(event) {
   var form, input, method, element;
 

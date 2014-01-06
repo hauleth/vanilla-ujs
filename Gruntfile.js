@@ -19,7 +19,9 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
+          'src/global.js',
           'src/method.js',
+          'src/confirm.js',
         ],
         dest: 'vanilla-ujs.js'
       }

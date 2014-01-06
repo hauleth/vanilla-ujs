@@ -35,7 +35,6 @@ describe('Link methods', function () {
 
   describe('[data-method=post]', function () {
     beforeEach(function () {
-      valid = false;
       a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'post');
     });
@@ -43,44 +42,54 @@ describe('Link methods', function () {
     it('is send as POST form', function (done) {
       click(a);
 
-      iframe.onload = (function () {
-        expect(document.body.innerText).to.have.string('post');
+      iframe.onload = function () {
+        var json = JSON.parse(doc.body.innerText);
+        expect(json).to.deep.equal({
+          method: 'post',
+          path: '/echo'
+        });
         done();
-      });
+      };
     });
   });
 
   describe('[data-method=delete]', function () {
     beforeEach(function () {
-      valid = false;
       a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'delete');
     });
 
-    it('set _method param to DELETE', function (done) {
+    it('is send with DELETE method', function (done) {
       click(a);
 
-      iframe.onload = (function () {
-        expect(document.body.innerText).to.have.string('delete');
+      iframe.onload = function () {
+        var json = JSON.parse(doc.body.innerText);
+        expect(json).to.deep.equal({
+          method: 'delete',
+          path: '/echo'
+        });
         done();
-      });
+      };
     });
   });
 
   describe('[data-method=put]', function () {
     beforeEach(function () {
-      valid = false;
       a.setAttribute('href', '/echo');
       a.setAttribute('data-method', 'put');
     });
 
-    it('set _method param to PUT', function (done) {
+    it('is sent with PUT method', function (done) {
       click(a);
 
-      iframe.onload = (function () {
-        expect(document.body.innerText).to.have.string('put');
+      iframe.onload = function () {
+        var json = JSON.parse(doc.body.innerText);
+        expect(json).to.deep.equal({
+          method: 'put',
+          path: '/echo'
+        });
         done();
-      });
+      };
     });
   });
 });

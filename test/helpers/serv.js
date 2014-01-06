@@ -5,28 +5,29 @@ var express = require('express'),
 
 app.use(express.urlencoded());
 
-var scripts = [];
+var scripts = [
+  'global',
+  'confirm',
+  'method',
+].map(function (s) { return ['<script src="/', s, '.js"></script>'].join(''); });
 
-glob('../../src/**/*.js', {sync: true}, function (er, files) {
-  scripts = files.map(function (f) {
-    return ['<script src="/', s, '"></script>'].join('');
-  });
-});
+var template = function(body) {
+  return [
+    '<html><head><title>Testing…</title></head><body>',
+    body,
+    '</body></html>'
+  ].join("\n");
+};
 
 app.get('/fixture', function (req, res) {
-  res.send([
-  '<html><head><title>Testing…</title>',
-  scripts.join("\n"),
-  '</head><body>',
-  '</body></html>'
-  ].join("\n"));
+  res.send(template(scripts.join('')));
 });
 
 app.all('/echo', function (req, res) {
-  res.send(JSON.stringify({
+  res.send(template(JSON.stringify({
     method: req.body._method || req.route.method,
     path: req.path
-  }));
+  })));
 });
 
 module.exports = app;
