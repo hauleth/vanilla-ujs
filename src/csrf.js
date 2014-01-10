@@ -17,7 +17,7 @@ var sameOrigin = function (url) {
 
 window.CSRF = CSRF;
 
-document.addEventListener('ajaxBeforeSend', function (e) {
+document.addEventListener('ajax:before', function (e) {
   var token = CSRF.token(), xhr = e.detail;
   if (token)
     xhr.setRequestHeader('X-CSRF-Token', token);

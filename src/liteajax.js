@@ -42,7 +42,7 @@ var LiteAjax = (function () {
     }
 
     xhr.open(options.method || 'GET', url, options.async);
-    var beforeSend = new CustomEvent('ajaxBeforeSend', {detail: xhr});
+    var beforeSend = new CustomEvent('ajax:before', {detail: xhr});
     document.dispatchEvent(beforeSend);
     xhr.send(options.data);
 
