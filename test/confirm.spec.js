@@ -3,13 +3,13 @@ describe('Link confirmation', function () {
     var a, confirm, clickLink;
 
     beforeEach(function () {
-      win.confirm   = confirm   = sinon.stub();
-      win.clickLink = clickLink = sinon.spy();
+      win().confirm   = confirm   = sinon.stub();
+      win().clickLink = clickLink = sinon.spy();
 
       a = document.createElement('a');
       a.setAttribute('data-confirm', 'Lolcontent');
       a.href = 'javascript:clickLink();';
-      doc.body.appendChild(a);
+      doc().body.appendChild(a);
     });
 
     it('call confirm', function () {

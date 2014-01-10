@@ -1,27 +1,27 @@
 describe('Link methods', function () {
-  var a;
+  var a, clickLink;
 
   beforeEach(function () {
     a = document.createElement('a');
-    doc.body.appendChild(a);
+    doc().body.appendChild(a);
   });
 
   describe('no [data-method]', function () {
     beforeEach(function () {
-      win.clickLink = sinon.spy();
+      win().clickLink = clickLink = sinon.spy();
       a.setAttribute('href', 'javascript:clickLink()');
     });
 
     it('is send normally', function () {
       click(a);
 
-      expect(win.clickLink.called).to.be.true;
+      expect(clickLink.called).to.be.true;
     });
   });
 
   describe('[data-method=get]', function () {
     beforeEach(function () {
-      win.clickLink = sinon.spy();
+      win().clickLink = clickLink = sinon.spy();
       a.setAttribute('href', 'javascript:clickLink()');
       a.setAttribute('data-method', 'get');
     });
@@ -29,7 +29,7 @@ describe('Link methods', function () {
     it('is send normally', function () {
       click(a);
 
-      expect(win.clickLink.called).to.be.true;
+      expect(clickLink.called).to.be.true;
     });
   });
 
@@ -43,7 +43,7 @@ describe('Link methods', function () {
       click(a);
 
       iframe.onload = function () {
-        var json = JSON.parse(doc.body.innerText);
+        var json = JSON.parse(doc().body.innerText);
         expect(json).to.deep.equal({
           method: 'post',
           path: '/echo'
@@ -63,7 +63,7 @@ describe('Link methods', function () {
       click(a);
 
       iframe.onload = function () {
-        var json = JSON.parse(doc.body.innerText);
+        var json = JSON.parse(doc().body.innerText);
         expect(json).to.deep.equal({
           method: 'delete',
           path: '/echo'
@@ -83,7 +83,7 @@ describe('Link methods', function () {
       click(a);
 
       iframe.onload = function () {
-        var json = JSON.parse(doc.body.innerText);
+        var json = JSON.parse(doc().body.innerText);
         expect(json).to.deep.equal({
           method: 'put',
           path: '/echo'

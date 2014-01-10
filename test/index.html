@@ -6,14 +6,17 @@
     <script src="config/mocha.js"></script>
     <script src="config/chai.js"></script>
     <script src="config/sinon.js"></script>
+    <script src="liteajax.js"></script>
     <script>mocha.setup('bdd')</script>
     <link rel="stylesheet" href="config/mocha.css" />
   </head>
   <body>
     <div id="mocha"></div>
     <div id="fixture"></div>
+    <script src="liteajax.spec.js"></script>
     <script src="method.spec.js"></script>
     <script src="confirm.spec.js"></script>
+    <script src="csrf.spec.js"></script>
     <script src="config/globals.js"></script>
     <script>
       window.onload = function () {

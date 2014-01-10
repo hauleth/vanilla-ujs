@@ -12,12 +12,12 @@
     global.iframe.onload = function () {
       global.iframe.onload = function () {};
 
-      global.__defineGetter__('win', function () {
+      global.win = function () {
         return global.iframe.contentWindow;
-      });
-      global.__defineGetter__('doc', function () {
+      };
+      global.doc = function () {
         return global.iframe.contentDocument;
-      });
+      };
 
       done();
     };

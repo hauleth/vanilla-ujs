@@ -9,6 +9,8 @@ var scripts = [
   'global',
   'confirm',
   'method',
+  'liteajax',
+  'csrf'
 ].map(function (s) { return ['<script src="/', s, '.js"></script>'].join(''); });
 
 var template = function(body) {
