@@ -6,7 +6,7 @@ var express = require('express'),
 app.use(express.urlencoded());
 
 var scripts = [
-  'global',
+  'pollyfils',
   'confirm',
   'method',
   'liteajax',
@@ -26,10 +26,25 @@ app.get('/fixture', function (req, res) {
 });
 
 app.all('/echo', function (req, res) {
-  res.send(template(JSON.stringify({
+  res.send(template([
+    '<script>window.top.',
+    req.query.callback,
+    '(',
+    JSON.stringify({
     method: req.body._method || req.route.method,
+    csrf: req.get('X-CSRF-Token'),
     path: req.path
-  })));
+    }),
+    ');</script>'
+  ].join('')));
+});
+
+app.all('/xhr', function (req, res) {
+  res.send({
+    method: req.body._method || req.route.method,
+    csrf: req.get('X-CSRF-Token') || req.body[req.query.param],
+    path: req.path
+  });
 });
 
 module.exports = app;

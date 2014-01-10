@@ -4,7 +4,7 @@ describe('LiteAjax', function () {
 
     beforeEach(function (done) {
       callbackSpy = sinon.spy();
-      xhr = LiteAjax.ajax('/echo', {
+      xhr = win().LiteAjax.ajax('/echo', {
         success: function () {
           callbackSpy();
           done();
@@ -22,7 +22,7 @@ describe('LiteAjax', function () {
 
     beforeEach(function (done) {
       callbackSpy = sinon.spy();
-      xhr = LiteAjax.ajax('/404', {
+      xhr = win().LiteAjax.ajax('/404', {
         success: function () { done(); },
         error: function () {
           callbackSpy();

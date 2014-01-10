@@ -8,7 +8,7 @@ describe('Link confirmation', function () {
 
       a = document.createElement('a');
       a.setAttribute('data-confirm', 'Lolcontent');
-      a.href = 'javascript:clickLink();';
+      a.href = '#clicked';
       doc().body.appendChild(a);
     });
 
@@ -23,7 +23,7 @@ describe('Link confirmation', function () {
 
       click(a);
 
-      expect(clickLink.called).to.be.true;
+      expect(win().location.hash).to.equal('#clicked');
     });
 
     it('do not fire default action if confirm() returns false', function () {
@@ -31,7 +31,7 @@ describe('Link confirmation', function () {
 
       click(a);
 
-      expect(clickLink.called).to.be.false;
+      expect(win().location.hash).to.not.equal('#clicked');
     });
   });
 

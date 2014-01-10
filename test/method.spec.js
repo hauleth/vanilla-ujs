@@ -4,12 +4,12 @@ describe('Link methods', function () {
   beforeEach(function () {
     a = document.createElement('a');
     doc().body.appendChild(a);
+    win().clickLink = clickLink = sinon.spy();
   });
 
   describe('no [data-method]', function () {
     beforeEach(function () {
-      win().clickLink = clickLink = sinon.spy();
-      a.setAttribute('href', 'javascript:clickLink()');
+      a.onclick = clickLink;
     });
 
     it('is send normally', function () {
@@ -21,8 +21,7 @@ describe('Link methods', function () {
 
   describe('[data-method=get]', function () {
     beforeEach(function () {
-      win().clickLink = clickLink = sinon.spy();
-      a.setAttribute('href', 'javascript:clickLink()');
+      a.onclick = clickLink;
       a.setAttribute('data-method', 'get');
     });
 
@@ -35,61 +34,58 @@ describe('Link methods', function () {
 
   describe('[data-method=post]', function () {
     beforeEach(function () {
-      a.setAttribute('href', '/echo');
+      a.setAttribute('href', '/echo?callback=parse');
       a.setAttribute('data-method', 'post');
     });
 
     it('is send as POST form', function (done) {
-      click(a);
-
-      iframe.onload = function () {
-        var json = JSON.parse(doc().body.innerText);
+      window.parse = function (json) {
         expect(json).to.deep.equal({
           method: 'post',
           path: '/echo'
         });
         done();
       };
+
+      click(a);
     });
   });
 
   describe('[data-method=delete]', function () {
     beforeEach(function () {
-      a.setAttribute('href', '/echo');
+      a.setAttribute('href', '/echo?callback=parse');
       a.setAttribute('data-method', 'delete');
     });
 
     it('is send with DELETE method', function (done) {
-      click(a);
-
-      iframe.onload = function () {
-        var json = JSON.parse(doc().body.innerText);
+      window.parse = function (json) {
         expect(json).to.deep.equal({
           method: 'delete',
           path: '/echo'
         });
         done();
       };
+
+      click(a);
     });
   });
 
   describe('[data-method=put]', function () {
     beforeEach(function () {
-      a.setAttribute('href', '/echo');
+      a.setAttribute('href', '/echo?callback=parse');
       a.setAttribute('data-method', 'put');
     });
 
     it('is sent with PUT method', function (done) {
-      click(a);
-
-      iframe.onload = function () {
-        var json = JSON.parse(doc().body.innerText);
+      window.parse = function (json) {
         expect(json).to.deep.equal({
           method: 'put',
           path: '/echo'
         });
         done();
       };
+
+      click(a);
     });
   });
 });

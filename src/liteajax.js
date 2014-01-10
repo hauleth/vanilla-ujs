@@ -20,6 +20,11 @@ var LiteAjax = (function () {
 
     xhr = new XMLHttpRequest();
 
+    xhr.addEventListener('load', function () {
+      var event = new CustomEvent('ajaxComplete', {detail: xhr});
+      document.dispatchEvent(event);
+    });
+
     if (typeof options.success == 'function')
       xhr.addEventListener('load', function (event) {
         if (xhr.status >= 200 && xhr.status < 300)
@@ -36,9 +41,9 @@ var LiteAjax = (function () {
       });
     }
 
-    var beforeSend = new CustomEvent('ajaxBeforeSend');
-    document.dispatchEvent(beforeSend);
     xhr.open(options.method || 'GET', url, options.async);
+    var beforeSend = new CustomEvent('ajaxBeforeSend', {detail: xhr});
+    document.dispatchEvent(beforeSend);
     xhr.send(options.data);
 
     return xhr;
