@@ -10,6 +10,11 @@ Use [Bower][bower]:
 
     bower install vanilla-ujs
 
+## Does it mean that I shouldn't use jQuery
+
+No. You should if you want. This library is created to make your Rails code
+independent from front-end library.
+
 ## Contribute
 
 1. Clone repo
@@ -25,7 +30,7 @@ Use [Bower][bower]:
 
         $ grunt test
 
-[travis-img]: https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
+[travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
 [travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
-[jq-ujs]: https://github.com/rails/jquery-ujs
-[bower]:  https://bower.io/
+[jq-ujs]:      https://github.com/rails/jquery-ujs
+[bower]:       https://bower.io/
