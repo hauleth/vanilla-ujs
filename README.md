@@ -34,3 +34,7 @@ independent from front-end library.
 [travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
 [jq-ujs]:      https://github.com/rails/jquery-ujs
 [bower]:       https://bower.io/
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/vanilla-ujs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
