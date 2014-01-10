@@ -1,5 +1,4 @@
 var express = require('express'),
-    glob = require('glob'),
     fs = require('fs'),
     app = express();
 
