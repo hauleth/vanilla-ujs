@@ -11,10 +11,10 @@
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-watch":  "*",
     "grunt-mocha": "*",
     "grunt-express": "*",
-    "express": "*",
-    "glob": "*"
+    "express": "*"
   },
   "repository": {
     "type": "git",
