@@ -30,7 +30,7 @@ independent from front-end library.
 
         $ grunt test
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/sass-960gs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/vanilla-ujs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
 [travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
