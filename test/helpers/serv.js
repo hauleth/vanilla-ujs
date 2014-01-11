@@ -5,7 +5,7 @@ var express = require('express'),
 app.use(express.urlencoded());
 
 var scripts = [
-  'pollyfils',
+  'polyfills',
   'confirm',
   'method',
   'liteajax',
