@@ -1,4 +1,27 @@
 (function (window, document) {
+var matches = (function(doc) {
+  return doc.matchesSelector ||
+    doc.webkitMatchesSelector ||
+    doc.mozMatchesSelector ||
+    doc.oMatchesSelector ||
+    doc.msMatchesSelector;
+})(document.documentElement);
+
+var CustomEvent = (function () {
+  var CustomEvent = function (event, params) {
+    params = params || {bubbles: false, cancelable: false, detail: undefined};
+    var evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    return evt;
+  };
+
+  CustomEvent.prototype = window.CustomEvent.prototype;
+
+  return CustomEvent;
+})();
+
+window.CustomEvent = CustomEvent;
+
 var LiteAjax = (function () {
   var LiteAjax = {};
 
@@ -43,7 +66,7 @@ var LiteAjax = (function () {
     }
 
     xhr.open(options.method || 'GET', url, options.async);
-    var beforeSend = new CustomEvent('ajaxBeforeSend', {detail: xhr});
+    var beforeSend = new CustomEvent('ajax:before', {detail: xhr});
     document.dispatchEvent(beforeSend);
     xhr.send(options.data);
 
@@ -124,7 +147,7 @@ var sameOrigin = function (url) {
 
 window.CSRF = CSRF;
 
-document.addEventListener('ajaxBeforeSend', function (e) {
+document.addEventListener('ajax:before', function (e) {
   var token = CSRF.token(), xhr = e.detail;
   if (token)
     xhr.setRequestHeader('X-CSRF-Token', token);

@@ -19,7 +19,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          'src/global.js',
+          'src/pollyfils.js',
           'src/liteajax.js',
           'src/method.js',
           'src/confirm.js',
