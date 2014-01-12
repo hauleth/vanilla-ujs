@@ -8,8 +8,8 @@ document.addEventListener('click', function(event) {
       return true;
     }
 
-    method = element.getAttribute('data-method').toLowerCase();
-    if (method == 'get') {
+    method = element.getAttribute('data-method').toUpperCase();
+    if (method == 'GET') {
       return true;
     }
 
@@ -18,7 +18,7 @@ document.addEventListener('click', function(event) {
     form.action = element.getAttribute('href');
     form.style.display = 'none';
 
-    if (method != 'post') {
+    if (method != 'POST') {
       input = document.createElement('input');
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', '_method');
