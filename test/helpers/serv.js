@@ -30,7 +30,7 @@ app.all('/echo', function (req, res) {
     req.query.callback,
     '(',
     JSON.stringify({
-    method: req.body._method || req.route.method,
+    method: (req.body._method || req.route.method).toLowerCase(),
     csrf: req.get('X-CSRF-Token'),
     path: req.path
     }),
@@ -40,7 +40,7 @@ app.all('/echo', function (req, res) {
 
 app.all('/xhr', function (req, res) {
   res.send({
-    method: req.body._method || req.route.method,
+    method: (req.body._method || req.route.method).toLowerCase(),
     csrf: req.get('X-CSRF-Token') || req.body[req.query.param],
     path: req.path
   });
