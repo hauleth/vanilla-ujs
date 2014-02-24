@@ -1,5 +1,5 @@
 # Vanilla UJS
-[![Build Status][travis-img]][travis-link][![Bower version](https://badge.fury.io/bo/vanilla-ujs.png)](http://badge.fury.io/bo/vanilla-ujs)
+[![Build Status][travis-img]][travis-link][![Bower version](https://badge.fury.io/bo/vanilla-ujs.png)](http://badge.fury.io/bo/vanilla-ujs)[![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.png)](https://gemnasium.com/hauleth/vanilla-ujs)
 
 It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript.
 No extra dependencies.
