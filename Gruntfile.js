@@ -4,11 +4,16 @@ module.exports = function (grunt) {
     mocha: {
       all: {
         options: {
-          urls: ['http://localhost:8000/index.html'],
+          reporter: 'Spec'
+        }
+      },
+      ci: {
+        options: {
         }
       },
       options: {
         run: true,
+        urls: ['http://localhost:8000/index.html'],
       }
     },
     concat: {
@@ -55,8 +60,10 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('test', ['express:test', 'mocha']);
+  grunt.registerTask('test', ['express:test', 'mocha:all']);
   grunt.registerTask('webtest', ['express:test', 'express-keepalive']);
+  grunt.registerTask('ci', ['express:test', 'mocha:ci']);
+
   grunt.registerTask('dist', ['concat', 'uglify:dist']);
   grunt.registerTask('default', ['test']);
 
