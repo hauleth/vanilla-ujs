@@ -47,6 +47,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           port: 8000,
+          hostname: 'localhost',
           server: 'test/helpers/serv.js',
           bases: ['src/', 'test/']
         }
@@ -70,6 +71,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express');
   grunt.loadNpmTasks('grunt-mocha');
 };

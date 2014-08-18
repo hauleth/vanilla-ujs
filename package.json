@@ -14,7 +14,8 @@
     "grunt-contrib-watch":  "*",
     "grunt-mocha": "*",
     "grunt-express": "*",
-    "express": "*"
+    "express": "~4.0.0",
+    "body-parser": "*"
   },
   "repository": {
     "type": "git",

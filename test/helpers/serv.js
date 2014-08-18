@@ -1,8 +1,10 @@
 var express = require('express'),
+    bodyParser = require('body-parser'),
     fs = require('fs'),
+    logger = require('morgan'),
     app = express();
 
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var scripts = [
   'polyfills',
@@ -30,9 +32,9 @@ app.all('/echo', function (req, res) {
     req.query.callback,
     '(',
     JSON.stringify({
-    method: (req.body._method || req.route.method).toLowerCase(),
-    csrf: req.get('X-CSRF-Token'),
-    path: req.path
+      method: (req.body._method || req.method).toLowerCase(),
+      csrf: req.get('X-CSRF-Token'),
+      path: req.path
     }),
     ');</script>'
   ].join('')));
@@ -40,8 +42,8 @@ app.all('/echo', function (req, res) {
 
 app.all('/xhr', function (req, res) {
   res.send({
-    method: (req.body._method || req.route.method).toLowerCase(),
-    csrf: req.get('X-CSRF-Token') || req.body[req.query.param],
+    method: (req.body._method || req.method).toLowerCase(),
+    csrf: req.get('X-CSRF-Token') || req.body[req.param('param')],
     path: req.path
   });
 });
