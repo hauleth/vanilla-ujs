@@ -1,7 +1,6 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
-    logger = require('morgan'),
     app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
