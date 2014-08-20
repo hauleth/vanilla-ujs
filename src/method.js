@@ -17,6 +17,13 @@ document.addEventListener('click', function(event) {
     form.method = 'POST';
     form.action = element.getAttribute('href');
     form.style.display = 'none';
+    
+    var csrfToken = document.createElement('input');
+    csrfToken.setAttribute('type', 'hidden');
+    csrfToken.setAttribute('name', CSRF.param());
+    csrfToken.setAttribute('value', CSRF.token());
+    form.appendChild(csrfToken);
+
 
     if (method != 'POST') {
       input = document.createElement('input');
