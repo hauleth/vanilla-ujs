@@ -1,9 +1,11 @@
 var CSRF = {
   token: function () {
-    return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var token = document.querySelector('meta[name="csrf-token"]');
+    return token && token.getAttribute('content');
   },
   param: function () {
-    return document.querySelector('meta[name="csrf-param"]').getAttribute('content');
+    var param = document.querySelector('meta[name="csrf-param"]');
+    return param && param.getAttribute('content');
   }
 };
 

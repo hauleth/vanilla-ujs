@@ -12,7 +12,7 @@ describe('Link methods', function () {
       a.onclick = clickLink;
     });
 
-    it('is send normally', function () {
+    it('is sent normally', function () {
       click(a);
 
       expect(clickLink.called).to.be.true;
@@ -25,7 +25,7 @@ describe('Link methods', function () {
       a.setAttribute('data-method', 'get');
     });
 
-    it('is send normally', function () {
+    it('is sent normally', function () {
       click(a);
 
       expect(clickLink.called).to.be.true;
@@ -34,20 +34,54 @@ describe('Link methods', function () {
 
   describe('[data-method=post]', function () {
     beforeEach(function () {
-      a.setAttribute('href', '/echo?callback=parse');
       a.setAttribute('data-method', 'post');
     });
 
-    it('is send as POST form', function (done) {
-      window.parse = function (json) {
-        expect(json).to.deep.equal({
-          method: 'post',
-          path: '/echo'
-        });
-        done();
-      };
+    describe('no [data-remote]', function () {
+      beforeEach(function () {
+        a.setAttribute('href', '/echo?callback=parse');
+      });
 
-      click(a);
+      it('is sent as POST form', function (done) {
+        var url = win().location.href;
+
+        window.parse = function (json) {
+          expect(url).to.not.equal(win().location.href);
+          expect(json).to.deep.equal({
+            method: 'post',
+            path: '/echo'
+          });
+          done();
+        };
+
+        click(a);
+      });
+    });
+
+    describe('[data-remote]', function () {
+      beforeEach(function () {
+        a.setAttribute('href', '/xhr');
+        a.setAttribute('data-remote', 'true');
+      });
+
+      it('is sent as XHR request', function (done) {
+        var url = win().location.href;
+
+        var handler = function (event, xhr) {
+          expect(url).to.equal(win().location.href);
+          expect(JSON.parse(event.detail.response)).to.deep.equal({
+            method: 'post',
+            path: '/xhr'
+          });
+
+          doc().removeEventListener('ajaxComplete', handler);
+          done();
+        };
+
+        doc().addEventListener('ajaxComplete', handler);
+
+        click(a);
+      });
     });
   });
 
@@ -57,7 +91,7 @@ describe('Link methods', function () {
       a.setAttribute('data-method', 'delete');
     });
 
-    it('is send with DELETE method', function (done) {
+    it('is sent with DELETE method', function (done) {
       window.parse = function (json) {
         expect(json).to.deep.equal({
           method: 'delete',

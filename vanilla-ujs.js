@@ -7,18 +7,14 @@ var matches = (function(doc) {
     doc.msMatchesSelector;
 })(document.documentElement);
 
-var CustomEvent = (function () {
-  var CustomEvent = function (event, params) {
-    params = params || {bubbles: false, cancelable: false, detail: undefined};
-    var evt = document.createEvent('CustomEvent');
-    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-    return evt;
-  };
+var CustomEvent = function (event, params) {
+  params = params || {bubbles: false, cancelable: false, detail: undefined};
+  var evt = document.createEvent('CustomEvent');
+  evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+  return evt;
+};
 
-  CustomEvent.prototype = window.CustomEvent.prototype;
-
-  return CustomEvent;
-})();
+CustomEvent.prototype = window.CustomEvent.prototype;
 
 window.CustomEvent = CustomEvent;
 
@@ -77,36 +73,70 @@ var LiteAjax = (function () {
 })();
 
 document.addEventListener('click', function(event) {
-  var form, input, method, element;
+  var element, url, method, data, handler;
 
   element = event.target;
 
   if (matches.call(element, 'a[data-method]')) {
-    if (matches.call(element, 'a[data-remote]')) {
-      return true;
+    url = element.getAttribute('href');
+    method = element.getAttribute('data-method').toUpperCase();
+    data = {};
+
+    if (CSRF.param() && CSRF.token()) {
+      data[CSRF.param()] = CSRF.token();
     }
 
-    method = element.getAttribute('data-method').toLowerCase();
-    if (method == 'get') {
+    if (matches.call(element, 'a[data-remote]')) {
+      handler = xhr;
+    } else {
+      handler = submit;
+    }
+
+    if (handler({ url: url, method: method, data: data })) {
+      event.preventDefault();
+    } else {
       return true;
+    }
+  }
+
+  function submit(options) {
+    var form, input, param;
+
+    if (options.method == 'GET') {
+      return false;
     }
 
     form = document.createElement('form');
     form.method = 'POST';
-    form.action = element.getAttribute('href');
+    form.action = options.url;
     form.style.display = 'none';
 
-    if (method != 'post') {
+    for (param in options.data) {
+      if (Object.prototype.hasOwnProperty.call(options.data, param)) {
+        input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', param);
+        input.setAttribute('value', options.data[param]);
+        form.appendChild(input);
+      }
+    }
+
+    if (options.method != 'POST') {
       input = document.createElement('input');
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', '_method');
-      input.setAttribute('value', method);
+      input.setAttribute('value', options.method);
       form.appendChild(input);
     }
 
     document.body.appendChild(form);
     form.submit();
-    event.preventDefault();
+    return true;
+  }
+
+  function xhr(options) {
+    LiteAjax.ajax(options);
+    return true;
   }
 }, false);
 
@@ -130,10 +160,12 @@ document.addEventListener('click', function (event) {
 
 var CSRF = {
   token: function () {
-    return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var token = document.querySelector('meta[name="csrf-token"]');
+    return token && token.getAttribute('content');
   },
   param: function () {
-    return document.querySelector('meta[name="csrf-param"]').getAttribute('content');
+    var param = document.querySelector('meta[name="csrf-param"]');
+    return param && param.getAttribute('content');
   }
 };
 
