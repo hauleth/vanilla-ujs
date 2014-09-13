@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     concat: {
       options: {
         stripBanners: true,
-        banner: "(function (window, document) {\n",
+        banner: "(function (window, document) {\n'use strict';\n",
         footer: '}).call(null, window, document);'
       },
       dist: {

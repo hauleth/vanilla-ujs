@@ -1,4 +1,5 @@
 (function (window, document) {
+'use strict';
 var matches = (function(doc) {
   return doc.matchesSelector ||
     doc.webkitMatchesSelector ||
