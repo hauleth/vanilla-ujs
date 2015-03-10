@@ -1,6 +1,6 @@
 # Vanilla UJS
 
-It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript. Based on code of [Łukasz Niemier][hauleth/vanilla-ujs].
+It is implementation of Rails jQuery UJS in pure JavaScript. Based on [code of Łukasz Niemier](github.com/hauleth/vanilla-ujs).
 No extra dependencies.
 
 ## Installation
