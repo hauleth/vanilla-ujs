@@ -21,6 +21,11 @@ var LiteAjax = (function () {
     xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', function () {
+      responseType = xhr.getResponseHeader('content-type');
+      if(responseType === 'text/javascript; charset=utf-8') {
+        eval(xhr.response);
+      }
+
       var event = new CustomEvent('ajaxComplete', {detail: xhr});
       document.dispatchEvent(event);
     });
