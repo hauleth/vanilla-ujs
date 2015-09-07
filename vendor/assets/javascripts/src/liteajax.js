@@ -14,6 +14,7 @@ var LiteAjax = (function () {
 
     options = options || {};
     url = url || options.url || location.href || '';
+    data = options.data;
 
     var xhr;
 
@@ -47,9 +48,15 @@ var LiteAjax = (function () {
 
     xhr.open(options.method || 'GET', url);
     xhr.setRequestHeader('X-Requested-With', 'XmlHttpRequest');
+
+    if(options.json) {
+      xhr.setRequestHeader('Content-type', 'application/json');
+      data = JSON.stringify(data)
+    }
+
     var beforeSend = new CustomEvent('ajax:before', {detail: xhr});
     document.dispatchEvent(beforeSend);
-    xhr.send(options.data);
+    xhr.send(data);
 
     return xhr;
   };
