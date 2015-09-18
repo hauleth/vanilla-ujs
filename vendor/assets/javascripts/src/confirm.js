@@ -3,7 +3,7 @@ document.addEventListener('click', function (event) {
 
   element = event.target;
 
-  if (matches.call(element, 'a[data-confirm], button[data-confirm]')) {
+  if (matches.call(element, 'a[data-confirm], button[data-confirm], input[data-confirm]')) {
     message = element.getAttribute('data-confirm');
     if (!confirm(message)) {
       event.stopPropagation();
