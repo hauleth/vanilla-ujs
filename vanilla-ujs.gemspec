@@ -2,9 +2,9 @@
 
 Gem::Specification.new do |s|
   s.name        = "vanilla-ujs"
-  s.version     = "0.1.2"
+  s.version     = "1.0.0"
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Alex Tsokurov", "Łukasz Niemier"]
+  s.authors     = ["Alex Tsokurov", "Łukasz Niemier", "Kirill Pimenov"]
   s.email       = ["me@ximik.net"]
   s.homepage    = "https://github.com/Ximik/vanilla-ujs"
   s.summary     = "UJS without jQuery dependency"

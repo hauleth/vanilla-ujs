@@ -16,3 +16,7 @@ The _Vanilla UJS_ files will be added to the asset pipeline and available for yo
 ```js
 //= require vanilla-ujs
 ```
+
+## Browser support
+
+This gem supports all modern browsers and IE10+.
