@@ -1,38 +1,36 @@
 # Vanilla UJS
-[![Build Status][travis-img]][travis-link][![Bower version](https://badge.fury.io/bo/vanilla-ujs.png)](http://badge.fury.io/bo/vanilla-ujs)[![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.png)](https://gemnasium.com/hauleth/vanilla-ujs)
 
-It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript.
-No extra dependencies.
+`Rails UJS` in pure JavaScript, with no `jQuery` dependency.
 
-## Install
+Based on [code of Łukasz Niemier](http://github.com/hauleth/vanilla-ujs).
 
-Use [Bower][bower]:
+## Should I use it?
 
-    bower install vanilla-ujs
+Consider it if you do not need to support `IE<10` and have no other `jQuery` dependency in your front-end codebase.
 
-## Does it mean that I shouldn't use jQuery
+Resources to make an educated guess:
 
-No. You should if you want. This library is created to make your Rails code
-independent from front-end library.
+- [jQuery's size](https://mathiasbynens.be/demo/jquery-size)
+- [You might not need jQuery](http://youmightnotneedjquery.com/)
+- [Browser usage](http://caniuse.com/usage-table)
+- [Discussion in Rails-UJS issue tracker](https://github.com/rails/jquery-ujs/issues/447)
 
-## Contribute
+## Installation
 
-1. Clone repo
+As usual:
 
-        $ git clone git://github.com/hauleth/vanilla-js.git
-        $ cd vanilla-js/
+`Gemfile`
+```ruby
+gem 'vanilla-ujs'
+```
 
-2. Install dependencies
+Run `bundle` and have the asset pipeline pick it up:
 
-        $ npm install
+`app/assets/javascripts/application.js`
+```js
+//= require vanilla-ujs
+```
 
-3. Run tests
+## Browser support
 
-        $ grunt test
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/vanilla-ujs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
-[travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
-[travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
-[jq-ujs]:      https://github.com/rails/jquery-ujs
-[bower]:       https://bower.io/
+`vanilla-ujs` supports all [ever green browsers](http://stackoverflow.com/a/19060334/264514) (including IE10+).
