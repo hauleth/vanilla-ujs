@@ -1,22 +1,36 @@
 # Vanilla UJS
 
-It is implementation of Rails jQuery UJS in pure JavaScript. Based on [code of Łukasz Niemier](http://github.com/hauleth/vanilla-ujs).
-No extra dependencies.
+`Rails UJS` in pure JavaScript, with no `jQuery` dependency.
+
+Based on [code of Łukasz Niemier](http://github.com/hauleth/vanilla-ujs).
+
+## Should I use it?
+
+Consider it if you do not need to support `IE<10` and have no other `jQuery` dependency in your front-end codebase.
+
+Resources to make an educated guess:
+
+- [jQuery's size](https://mathiasbynens.be/demo/jquery-size)
+- [You might not need jQuery](http://youmightnotneedjquery.com/)
+- [Browser usage](http://caniuse.com/usage-table)
+- [Discussion in Rails-UJS issue tracker](https://github.com/rails/jquery-ujs/issues/447)
 
 ## Installation
 
-_Vanilla UJS_ is meant to work as a Rails plugin. To install it in your current application, add the following to your `Gemfile`:
+As usual:
 
+`Gemfile`
 ```ruby
 gem 'vanilla-ujs'
 ```
 
-The _Vanilla UJS_ files will be added to the asset pipeline and available for you to use. Just add these lines in `app/assets/javascripts/application.js`:
+Run `bundle` and have the asset pipeline pick it up:
 
+`app/assets/javascripts/application.js`
 ```js
 //= require vanilla-ujs
 ```
 
 ## Browser support
 
-This gem supports all modern browsers and IE10+.
+`vanilla-ujs` supports all [ever green browsers](http://stackoverflow.com/a/19060334/264514) (including IE10+).
