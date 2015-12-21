@@ -10,7 +10,7 @@ var CSRF = {
 };
 
 var sameOrigin = function (url) {
-  var a = document.create('a'), origin;
+  var a = document.createElement('a'), origin;
   a.href = url;
   origin = a.href.split('/', 3).join('/');
 
