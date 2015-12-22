@@ -28,6 +28,7 @@ module.exports = function (grunt) {
           'src/liteajax.js',
           'src/method.js',
           'src/confirm.js',
+          'src/disable.js',
           'src/csrf.js',
         ],
         dest: 'vanilla-ujs.js'
