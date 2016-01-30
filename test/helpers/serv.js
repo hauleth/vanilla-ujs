@@ -11,7 +11,7 @@ var scripts = [
   'method',
   'liteajax',
   'csrf'
-].map(function (s) { return ['<script src="/', s, '.js"></script>'].join(''); });
+].map(function (s) { return ['<script src="/assets/javascripts/vanilla-ujs/', s, '.js"></script>'].join(''); });
 
 var template = function(body) {
   return [

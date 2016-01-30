@@ -40,13 +40,13 @@ module.exports = function (grunt) {
           port: 8000,
           hostname: 'localhost',
           server: 'test/helpers/serv.js',
-          bases: ['src/', 'test/']
+          bases: ['./lib/', './test/']
         }
       }
     },
     watch: {
       tests: {
-        files: ["src/**/*.js", "test/**/*.spec.js"],
+        files: ["lib/**/*.js", "test/**/*.spec.js"],
         tasks: ["test"],
       },
     }
