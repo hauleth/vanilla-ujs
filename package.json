@@ -4,6 +4,7 @@
   "description": "Rails UJS in VanillaJS",
   "main": "lib/assets/javascripts/vanilla-ujs.js",
   "scripts": {
+    "build": "npm install && grunt dist",
     "test": "grunt test",
     "webtest": "grunt webtest"
   },
