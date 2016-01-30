@@ -4,12 +4,32 @@
 It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript.
 No extra dependencies.
 
-## Install
+## Installation using the vanilla-ujs gem
+
+For automated installation in Rails, use the "vanilla-ujs" gem. Place this in your Gemfile:
+
+```ruby
+gem 'vanilla-ujs', github: 'hauleth/vanilla-ujs'
+```
+
+And run:
+
+```shell
+$ bundle install
+```
+
+Require `vanilla-ujs` into your application.js manifest.
+
+```javascript
+//= require vanilla-ujs
+```
+
+## Install with Bower
 
 Use [Bower][bower]:
 
     bower install vanilla-ujs
-
+    
 ## Does it mean that I shouldn't use jQuery
 
 No. You should if you want. This library is created to make your Rails code
