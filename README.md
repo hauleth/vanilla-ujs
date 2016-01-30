@@ -24,12 +24,6 @@ Require `vanilla-ujs` into your application.js manifest.
 //= require vanilla-ujs
 ```
 
-## Install with Bower
-
-Use [Bower][bower]:
-
-    bower install vanilla-ujs
-    
 ## Does it mean that I shouldn't use jQuery
 
 No. You should if you want. This library is created to make your Rails code
