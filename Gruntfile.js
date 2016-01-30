@@ -20,7 +20,7 @@ module.exports = function (grunt) {
       options: {
         stripBanners: true,
         banner: "(function (window, document) {\n'use strict';\n",
-        footer: '}).call(null, window, document);'
+        footer: '}).call(void(0), window, document);'
       },
       dist: {
         src: [
@@ -31,17 +31,7 @@ module.exports = function (grunt) {
           'src/disable.js',
           'src/csrf.js',
         ],
-        dest: 'vanilla-ujs.js'
-      }
-    },
-    uglify: {
-      dist: {
-        options: {
-          sourceMap: 'vanilla-ujs.map.js'
-        },
-        files: {
-          'vanilla-ujs.min.js': 'vanilla-ujs.js'
-        }
+        dest: 'vendor/assets/javascripts/vanilla-ujs.js'
       }
     },
     express: {
@@ -66,11 +56,10 @@ module.exports = function (grunt) {
   grunt.registerTask('webtest', ['express:test', 'express-keepalive']);
   grunt.registerTask('ci', ['express:test', 'mocha:ci']);
 
-  grunt.registerTask('dist', ['concat', 'uglify:dist']);
+  grunt.registerTask('dist', ['concat']);
   grunt.registerTask('default', ['test']);
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express');
