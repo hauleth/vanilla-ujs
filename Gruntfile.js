@@ -24,14 +24,14 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          'src/polyfills.js',
-          'src/liteajax.js',
-          'src/method.js',
-          'src/confirm.js',
-          'src/disable.js',
-          'src/csrf.js',
+          'lib/assets/javascripts/vanilla-ujs/polyfills.js',
+          'lib/assets/javascripts/vanilla-ujs/liteajax.js',
+          'lib/assets/javascripts/vanilla-ujs/method.js',
+          'lib/assets/javascripts/vanilla-ujs/confirm.js',
+          'lib/assets/javascripts/vanilla-ujs/disable.js',
+          'lib/assets/javascripts/vanilla-ujs/csrf.js',
         ],
-        dest: 'vendor/assets/javascripts/vanilla-ujs.js'
+        dest: 'lib/assets/javascripts/vanilla-ujs.js'
       }
     },
     express: {

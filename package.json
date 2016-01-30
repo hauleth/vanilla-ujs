@@ -2,7 +2,7 @@
   "name": "vanilla-ujs",
   "version": "0.1.0",
   "description": "Rails UJS in VanillaJS",
-  "main": "vendor/assets/javascripts/vanilla-ujs.js",
+  "main": "lib/assets/javascripts/vanilla-ujs.js",
   "scripts": {
     "test": "grunt test",
     "webtest": "grunt webtest"

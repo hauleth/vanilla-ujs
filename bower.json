@@ -5,7 +5,7 @@
     "Łukasz Niemier <lukasz@niemier.pl>"
   ],
   "description": "Rails UJS written without jQuery dependencies.",
-  "main": "vendor/assets/javascripts/vanilla-ujs.js",
+  "main": "lib/assets/javascripts/vanilla-ujs.js",
   "license": "MIT",
   "ignore": [
     "node_modules",
