@@ -42,7 +42,7 @@ app.all('/echo', function (req, res) {
 app.all('/xhr', function (req, res) {
   res.send({
     method: (req.body._method || req.method).toLowerCase(),
-    csrf: req.get('X-CSRF-Token') || req.body[req.param('param')],
+    csrf: req.get('X-CSRF-Token') || req.body[req.params['param']],
     path: req.path
   });
 });

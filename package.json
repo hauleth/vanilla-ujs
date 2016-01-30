@@ -2,20 +2,22 @@
   "name": "vanilla-ujs",
   "version": "0.1.0",
   "description": "Rails UJS in VanillaJS",
+  "main": "vendor/assets/javascripts/vanilla-ujs.js",
   "scripts": {
     "test": "grunt test",
     "webtest": "grunt webtest"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "body-parser": "*",
+    "express": "~4.13.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-watch":  "*",
-    "grunt-mocha": "*",
+    "grunt-contrib-watch": "*",
     "grunt-express": "*",
-    "express": "~4.0.0",
-    "body-parser": "*"
+    "grunt-mocha": "*",
+    "grunt-parallel": "^0.4.1"
   },
   "repository": {
     "type": "git",
