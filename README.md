@@ -44,6 +44,18 @@ independent from front-end library.
 
         $ grunt test
 
+## Thanks
+
+- Walter Lee Davis ([@walterdavis](https://github.com/walterdavis))
+- Tasveer Singh ([@tazsingh](https://github.com/tazsingh))
+- Tim O'Sulg ([@timgluz](https://github.com/timgluz))
+- Matt Huggins ([@mhuggins](https://github.com/mhuggins))
+- Alex Tsokurov ([@ximik](https://github.com/ximik))
+
+# License
+
+See [LICENSE](LICENSE) file.
+
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/vanilla-ujs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
