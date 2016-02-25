@@ -10,7 +10,7 @@ For automated installation in Rails, use the `vanilla-ujs` gem.
 Place this in your Gemfile:
 
 ```ruby
-gem 'vanilla-ujs', github: 'hauleth/vanilla-ujs'
+gem 'vanilla-ujs'
 ```
 
 And run:
