@@ -1,15 +1,16 @@
 # Vanilla UJS
-[![Build Status][travis-img]][travis-link][![Bower version](https://badge.fury.io/bo/vanilla-ujs.png)](http://badge.fury.io/bo/vanilla-ujs)[![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.png)](https://gemnasium.com/hauleth/vanilla-ujs)
+[![Build Status][travis-img]][travis-link][![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.png)](https://gemnasium.com/hauleth/vanilla-ujs)
 
 It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript.
 No extra dependencies.
 
 ## Installation using the vanilla-ujs gem
 
-For automated installation in Rails, use the "vanilla-ujs" gem. Place this in your Gemfile:
+For automated installation in Rails, use the `vanilla-ujs` gem.
+Place this in your Gemfile:
 
 ```ruby
-gem 'vanilla-ujs', github: 'hauleth/vanilla-ujs'
+gem 'vanilla-ujs'
 ```
 
 And run:
@@ -44,9 +45,18 @@ independent from front-end library.
 
         $ grunt test
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hauleth/vanilla-ujs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+## Thanks
+
+- Alex Tsokurov ([@ximik](https://github.com/ximik))
+- Matt Huggins ([@mhuggins](https://github.com/mhuggins))
+- Tasveer Singh ([@tazsingh](https://github.com/tazsingh))
+- Tim O'Sulg ([@timgluz](https://github.com/timgluz))
+- Walter Lee Davis ([@walterdavis](https://github.com/walterdavis))
+
+# License
+
+See [`LICENSE`](LICENSE.txt) file.
 
 [travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
 [travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
 [jq-ujs]:      https://github.com/rails/jquery-ujs
-[bower]:       https://bower.io/
