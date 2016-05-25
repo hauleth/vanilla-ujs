@@ -30,6 +30,7 @@ module.exports = function (grunt) {
           'lib/assets/javascripts/vanilla-ujs/confirm.js',
           'lib/assets/javascripts/vanilla-ujs/disable.js',
           'lib/assets/javascripts/vanilla-ujs/csrf.js',
+          'lib/assets/javascripts/vanilla-ujs/form.js',
         ],
         dest: 'lib/assets/javascripts/vanilla-ujs.js'
       }

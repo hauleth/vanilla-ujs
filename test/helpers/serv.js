@@ -10,7 +10,8 @@ var scripts = [
   'confirm',
   'method',
   'liteajax',
-  'csrf'
+  'csrf',
+  'form'
 ].map(function (s) { return ['<script src="/assets/javascripts/vanilla-ujs/', s, '.js"></script>'].join(''); });
 
 var template = function(body) {
