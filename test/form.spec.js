@@ -58,11 +58,11 @@ describe('Form methods', function () {
             path: '/xhr'
           });
           
-          doc().removeEventListener('ajaxComplete', handler);
+          doc().removeEventListener('ajax:complete', handler);
           done();
         };
         
-        doc().addEventListener('ajaxComplete', handler);
+        doc().addEventListener('ajax:complete', handler);
         
         click(submit);
         
