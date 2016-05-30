@@ -74,11 +74,11 @@ describe('Link methods', function () {
             path: '/xhr'
           });
 
-          doc().removeEventListener('ajaxComplete', handler);
+          doc().removeEventListener('ajax:complete', handler);
           done();
         };
 
-        doc().addEventListener('ajaxComplete', handler);
+        doc().addEventListener('ajax:complete', handler);
 
         click(a);
       });
