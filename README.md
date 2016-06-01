@@ -34,7 +34,7 @@ independent from front-end library.
 
 1. Clone repo
 
-        $ git clone git://github.com/hauleth/vanilla-js.git
+        $ git clone git://github.com/hauleth/vanilla-ujs.git
         $ cd vanilla-js/
 
 2. Install dependencies
