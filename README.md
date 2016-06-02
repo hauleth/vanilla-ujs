@@ -1,5 +1,5 @@
 # Vanilla UJS
-[![Build Status][travis-img]][travis-link][![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.png)](https://gemnasium.com/hauleth/vanilla-ujs)
+[![Build Status][travis-img]][travis-link][![Dependency Status](https://gemnasium.com/hauleth/vanilla-ujs.svg)](https://gemnasium.com/hauleth/vanilla-ujs)
 
 It is implementation of Rails [jQuery UJS][jq-ujs] in pure JavaScript.
 No extra dependencies.
@@ -57,6 +57,6 @@ independent from front-end library.
 
 See [`LICENSE`](LICENSE.txt) file.
 
-[travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.png?branch=master
+[travis-img]:  https://travis-ci.org/hauleth/vanilla-ujs.svg?branch=master
 [travis-link]: https://travis-ci.org/hauleth/vanilla-ujs
 [jq-ujs]:      https://github.com/rails/jquery-ujs
