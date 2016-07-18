@@ -67,7 +67,7 @@ describe('Link methods', function () {
       it('is sent as XHR request', function (done) {
         var url = win().location.href;
 
-        var handler = function (event, xhr) {
+        var handler = function (event) {
           expect(url).to.equal(win().location.href);
           expect(JSON.parse(event.detail.response)).to.deep.equal({
             method: 'post',
