@@ -47,7 +47,39 @@ describe('Form methods', function () {
         form.setAttribute('action', '/xhr');
         form.setAttribute('data-remote', 'true');
       });
-      
+
+      it('calls ajax:before event on form with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(form);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:before', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:before', handler);
+
+        click(submit);
+
+        expect(submitForm.called).to.be.true;
+      });
+
+      it('calls ajax:complete event on form with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(form);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:complete', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:complete', handler);
+
+        click(submit);
+
+        expect(submitForm.called).to.be.true;
+      });
+
       it('is sent as XHR request', function (done) {
         var url = win().location.href;
         
