@@ -8,4 +8,5 @@
 /spec/reports/
 /tmp/
 /node_modules
+/vendor/bundle
 /*.gem
