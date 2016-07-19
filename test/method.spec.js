@@ -64,10 +64,38 @@ describe('Link methods', function () {
         a.setAttribute('data-remote', 'true');
       });
 
+      it('calls ajax:before event on a element with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(a);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:before', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:before', handler);
+
+        click(a);
+      });
+
+      it('calls ajax:complete event on a element with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(a);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:complete', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:complete', handler);
+
+        click(a);
+      });
+
       it('is sent as XHR request', function (done) {
         var url = win().location.href;
 
-        var handler = function (event, xhr) {
+        var handler = function (event) {
           expect(url).to.equal(win().location.href);
           expect(JSON.parse(event.detail.response)).to.deep.equal({
             method: 'post',

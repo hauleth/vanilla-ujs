@@ -11,21 +11,21 @@ describe('Form methods', function () {
     form.appendChild(submit)
     win().submitForm = submitForm = sinon.spy();
   });
-  
+
   describe('[method=post]', function () {
     beforeEach(function () {
       form.onsubmit = submitForm;
       form.setAttribute('method', 'post');
     });
-    
+
     describe('no [data-remote]', function () {
       beforeEach(function () {
         form.setAttribute('action', '/echo?callback=parse');
       });
-  
+
       it('is submitted as a form', function (done) {
         var url = win().location.href;
-  
+
         window.parse = function (json) {
           expect(url).to.not.equal(win().location.href);
           expect(json).to.deep.equal({
@@ -34,41 +34,73 @@ describe('Form methods', function () {
           });
           done();
         };
-        
+
         click(submit);
-        
+
         expect(submitForm.called).to.be.true;
       });
-      
+
     });
-  
+
     describe('[data-remote]', function () {
       beforeEach(function () {
         form.setAttribute('action', '/xhr');
         form.setAttribute('data-remote', 'true');
       });
-      
+
+      it('calls ajax:before event on form with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(form);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:before', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:before', handler);
+
+        click(submit);
+
+        expect(submitForm.called).to.be.true;
+      });
+
+      it('calls ajax:complete event on form with bubbling enabled', function (done) {
+        var handler = function (event) {
+          expect(event.target).to.equal(form);
+          expect(event.bubbles).to.equal(true);
+
+          doc().removeEventListener('ajax:complete', handler);
+          done();
+        };
+
+        doc().addEventListener('ajax:complete', handler);
+
+        click(submit);
+
+        expect(submitForm.called).to.be.true;
+      });
+
       it('is sent as XHR request', function (done) {
         var url = win().location.href;
-        
-        var handler = function (event, xhr) {
+
+        var handler = function (event) {
           expect(url).to.equal(win().location.href);
           expect(JSON.parse(event.detail.response)).to.deep.equal({
             method: 'post',
             path: '/xhr'
           });
-          
+
           doc().removeEventListener('ajax:complete', handler);
           done();
         };
-        
+
         doc().addEventListener('ajax:complete', handler);
-        
+
         click(submit);
-        
+
         expect(submitForm.called).to.be.true;
       });
     });
   });
-  
+
 });
