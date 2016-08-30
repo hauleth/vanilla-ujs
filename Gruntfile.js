@@ -26,8 +26,8 @@ module.exports = function (grunt) {
         src: [
           'lib/assets/javascripts/vanilla-ujs/polyfills.js',
           'lib/assets/javascripts/vanilla-ujs/liteajax.js',
-          'lib/assets/javascripts/vanilla-ujs/method.js',
           'lib/assets/javascripts/vanilla-ujs/confirm.js',
+          'lib/assets/javascripts/vanilla-ujs/method.js',
           'lib/assets/javascripts/vanilla-ujs/disable.js',
           'lib/assets/javascripts/vanilla-ujs/csrf.js',
           'lib/assets/javascripts/vanilla-ujs/form.js',
