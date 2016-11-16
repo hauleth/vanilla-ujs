@@ -100,6 +100,21 @@ describe('Form methods', function () {
 
         expect(submitForm.called).to.be.true;
       });
+
+      it('does not pass formdata when there are no form inputs', function (done) {
+        // Inputs without name are usually not included in a form POST, we use that to simulate
+        // a request without inputs
+        submit.removeAttribute('name');
+
+        win().LiteAjax.ajax = sinon.spy();
+        click(submit);
+
+        var options = win().LiteAjax.ajax.getCall(0).args[0];
+        expect(options.data).to.equal(null);
+
+        expect(submitForm.called).to.be.true;
+        done();
+      });
     });
   });
 
