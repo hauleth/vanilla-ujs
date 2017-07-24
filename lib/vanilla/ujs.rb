@@ -1,8 +1,9 @@
-require 'vanilla/ujs/version'
-require 'vanilla/ujs/rails'
-
 module Vanilla
-  module Rails
-    # Your code goes here...
+  module Ujs
+    require 'vanilla/ujs/version'
+
+    if defined?(Rails)
+      require 'vanilla/ujs/rails'
+    end
   end
 end
