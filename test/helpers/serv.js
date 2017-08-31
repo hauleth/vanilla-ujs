@@ -9,6 +9,7 @@ var scripts = [
   'polyfills',
   'confirm',
   'method',
+  'disable',
   'liteajax',
   'csrf',
   'form'
