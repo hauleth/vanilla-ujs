@@ -17,7 +17,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-express": "*",
-    "grunt-mocha": "*",
+    "grunt-mocha": "~1.0",
     "grunt-parallel": "^0.4.1"
   },
   "repository": {
