@@ -1,6 +1,7 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
+    path = require('path'),
     app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,6 +48,22 @@ app.all('/xhr', function (req, res) {
     csrf: req.get('X-CSRF-Token') || req.body[req.params['param']],
     path: req.path
   });
+});
+
+app.all('/assets/mocha.js', function (req, res) {
+  res.sendFile(path.resolve(__dirname, "../../node_modules/mocha/mocha.js"));
+});
+
+app.all('/assets/mocha.css', function (req, res) {
+  res.sendFile(path.resolve(__dirname, "../../node_modules/mocha/mocha.css"));
+});
+
+app.all('/assets/sinon.js', function (req, res) {
+  res.sendFile(path.resolve(__dirname, "../../node_modules/sinon/pkg/sinon.js"));
+});
+
+app.all('/assets/chai.js', function (req, res) {
+  res.sendFile(path.resolve(__dirname, "../../node_modules/chai/chai.js"));
 });
 
 module.exports = app;
