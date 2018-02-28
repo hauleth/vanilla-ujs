@@ -33,6 +33,15 @@ describe('Link confirmation', function () {
 
       expect(win().location.hash).to.not.equal('#clicked');
     });
+
+    it('call confirm woth elements inside link', function () {
+      var i = document.createElement('i');
+      a.appendChild(i);
+
+      click(i);
+
+      expect(confirm.called).to.be.true;
+    });
   });
 
   // TODO: Write tests for <button>

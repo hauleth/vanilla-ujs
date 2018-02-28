@@ -56,6 +56,22 @@ describe('Link methods', function () {
 
         click(a);
       });
+
+      it('is sent when clicking child element inside link', function (done) {
+        var url = win().location.href;
+        var i = document.createElement('i');
+        a.appendChild(i);
+        window.parse = function (json) {
+          expect(url).to.not.equal(win().location.href);
+          expect(json).to.deep.equal({
+            method: 'post',
+            path: '/echo'
+          });
+          done();
+        };
+
+        click(i);
+      });
     });
 
     describe('[data-remote]', function () {
